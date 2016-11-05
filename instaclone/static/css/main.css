@@ -1,0 +1,81 @@
+@font-face {
+ font-family: 'proxima-nova';
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-bold-webfont.eot/115b1f7f9c04.eot');
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-bold-webfont.eot/115b1f7f9c04.eot?#iefix') format("embedded-opentype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-bold-webfont.woff/618250d25a4d.woff') format("woff"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-bold-webfont.ttf/646346e03084.ttf') format("truetype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-bold-webfont.svg/e55a9d6051e8.svg#ProximaNovaBold') format("svg");
+ font-weight: bold;
+ font-style: normal; }
+
+@font-face {
+ font-family: 'proxima-nova';
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-boldit-webfont.eot/1cbb869da891.eot');
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-boldit-webfont.eot/1cbb869da891.eot?#iefix') format("embedded-opentype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-boldit-webfont.woff/b1cf049474c9.woff') format("woff"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-boldit-webfont.ttf/3adb020ceae3.ttf') format("truetype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-boldit-webfont.svg/29948a2d3c58.svg#ProximaNovaBoldItalic') format("svg");
+ font-weight: bold;
+ font-style: italic; }
+
+@font-face {
+ font-family: 'proxima-nova';
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-reg-webfont.eot/12af77715cee.eot');
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-reg-webfont.eot/12af77715cee.eot?#iefix') format("embedded-opentype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-reg-webfont.woff/a9a9773b8e29.woff') format("woff"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-reg-webfont.ttf/99e19808976a.ttf') format("truetype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-reg-webfont.svg/c33d2fd56309.svg#ProximaNovaRegular') format("svg");
+ font-weight: normal;
+ font-style: normal; }
+
+@font-face {
+ font-family: 'proxima-nova';
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-regit-webfont.eot/1bbbd1312b0d.eot');
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-regit-webfont.eot/1bbbd1312b0d.eot?#iefix') format("embedded-opentype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-regit-webfont.woff/9e306befca91.woff') format("woff"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-regit-webfont.ttf/4a8663684135.ttf') format("truetype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-regit-webfont.svg/876278d4b189.svg#ProximaNovaRegularItalic') format("svg");
+ font-weight: normal;
+ font-style: italic; }
+
+@font-face {
+ font-family: 'proxima-nova';
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-sbold-webfont.eot/5016edf79e1d.eot');
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-sbold-webfont.eot/5016edf79e1d.eot?#iefix') format("embedded-opentype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-sbold-webfont.woff/615c1b06d8fa.woff') format("woff"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-sbold-webfont.ttf/2973bd483f7a.ttf') format("truetype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-sbold-webfont.svg/868597833e49.svg#ProximaNovaSemibold') format("svg");
+ font-weight: 600;
+ font-style: normal; }
+
+
+@font-face {
+ font-family: 'proxima-nova';
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-light-webfont.eot/63c84728610f.eot');
+ src: url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-light-webfont.eot/63c84728610f.eot?#iefix') format("embedded-opentype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-light-webfont.woff/66bbe029f180.woff') format("woff"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-light-webfont.ttf/eb408516399b.ttf') format("truetype"),
+   url(' //instagramstatic-a.akamaihd.net/h1/webfonts/proximanova-light-webfont.svg/858f6a9b7ef3.svg#ProximaNovaLight') format("svg");
+ font-weight: 300;
+ font-style: normal; }
+
+
+body {
+  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+  height: 100%;
+  overflow-y: scroll;
+  line-height: 1;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+.nav.main_nav {
+  background-color: #fafafa;
+  padding: 0;
+}

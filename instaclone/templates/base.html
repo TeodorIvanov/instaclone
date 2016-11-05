@@ -1,0 +1,47 @@
+<!DOCTYPE html>{% load static i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>{% block title %}{{ meta.title }}{% endblock title %}</title>
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#f2f2f2">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#f2f2f2">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!--Favicons-->
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+  <!-- CSS -->
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+  {% block css %}{% endblock %}
+
+  {# {% render_block "css" %} #}
+  {% block inline_css %}{% endblock %}
+</head>
+
+<body>
+  <span class="root">
+    <main>
+
+    </main>
+    <nav class="main_nav">
+      <div class="main_nav">
+        <div class="main_nav_content">
+          <a href="{% url 'news_feed' %}">Instaclone</a>
+        </div>
+      </div>
+    </nav>
+    <footer class="main_footer">
+
+    </footer>
+  </span>
+{% block feed %}
+
+{% endblock feed %}
+</body>
+</html>

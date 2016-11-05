@@ -27,7 +27,7 @@ except ImportError:
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+INTERNAL_IPS = ('127.0.0.1',)
 
 # Application definition
 
@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'instaclone.contrib.pictures',
     'instaclone.contrib.tags',
     'instaclone.contrib.users',
+    # 3rd party
+    'debug_toolbar',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -54,14 +57,21 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+# if DEBUG:
+#     MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+
 ROOT_URLCONF = 'instaclone.urls'
+SHOW_TOOLBAR_CALLBACK = True
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+             os.path.join(BASE_DIR, 'instaclone', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,3 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+#
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR, "instaclone", "static")
