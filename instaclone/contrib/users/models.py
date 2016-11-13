@@ -14,7 +14,7 @@ class BaseUser(models.Model):
 class User(BaseUser):
     first_name = models.CharField(_('First name'), max_length=255, default='')
     last_name = models.CharField(_('Last name'), max_length=255, default='')
-    profile_picture = models.FileField()
+    profile_picture = models.ImageField()
     description = models.CharField(_('Profile description'), max_length=500, default='')
     is_public = models.BooleanField(_('Profile is public'), default=True)
     time_created = models.DateTimeField(_('Time created'), auto_now=False, auto_now_add=True)
@@ -32,7 +32,7 @@ class User(BaseUser):
         verbose_name_plural = _('Users')
 
     def __str__(self):
-        return 'User: {}'.format(self.user.username)
+        return self.user.username
 
 
 class Search(models.Model):
@@ -47,4 +47,4 @@ class Search(models.Model):
         order_with_respect_to = 'user'
 
     def __str__(self):
-        return 'Search {}: {}'.format(self.user.user.username, self.query)
+        return '{}: {}'.format(self.user.user.username, self.query)

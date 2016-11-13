@@ -1,4 +1,68 @@
 {% extends 'base.html' %}
 {% block feed %}
-{{ objects }}
+<div class="container">
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+    <div class="feed_wrapper">
+      {% for post, author in posts.items %}
+        <div class="post_wrapper">
+          <div class="picture_wrapper" style="padding: 50px 20px 0 0;">
+            <img src="{{ post.picture.url }}"  style="max-width: 800px; max-height:500px;">
+          </div>
+          <div class="user_wrapper">
+            <a href="{% url 'user_profile' author.0.user.username %}">{{ author.0 }}</a>
+            {% with post.likes.count as likes %}
+              {% if not likes %}
+                <span id="like_count_wrapper-{{ post.id }}">0</span> likes
+              {% else %}
+                <span id="like_count_wrapper-{{ post.id }}">{{ likes }}</span> like{{ likes|pluralize }}
+              {% endif %}
+            {% endwith %}
+            <form method="POST">
+              {% csrf_token %}
+              {% if author.1 %}
+                <button id="toggle-like-{{ post.id }}" class="liked" type="button" data-target="{{ post.id }}">Unlike this</button>
+              {% else %}
+                <button id="toggle-like-{{ post.id }}" type="button" data-target="{{ post.id }}">Like this</button>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
 {% endblock feed %}
+
+{% block js %}
+<script type="text/javascript">
+jQuery(function($){
+  $("button[id^='toggle-like']").on('click', function() {
+    instance = $(this).attr('data-target');
+    toggle_like(instance);
+    var like_count_wrapper = $("#like_count_wrapper-"+instance);
+    var like_count = parseInt(like_count_wrapper.text());
+    $(this).toggleClass("liked");
+    if ($(this).hasClass("liked") === true) {
+        $(this).text("Unlike this");
+        like_count_wrapper.text(like_count + 1);
+      } else {
+        $(this).text("Like this")
+        like_count_wrapper.text(like_count - 1);
+    }
+  });
+
+  function toggle_like(instance) {
+    $.ajax({
+        url: "{% url 'toggle_like' %}",
+        method: "POST",
+        data: {
+            instance: instance,
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        },
+    });
+  }
+});
+</script>
+{% endblock js %}

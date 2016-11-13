@@ -6,4 +6,4 @@ class Tag(models.Model):
     title = models.CharField(_('Title'), max_length=255, default='')
 
     def __str__(self):
-        return 'Tag: {}'.format(self.title)
+        return self.title
