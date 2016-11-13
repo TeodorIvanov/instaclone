@@ -1,16 +1,19 @@
 from collections import OrderedDict
 from itertools import chain
 
+from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User as DjangoUser
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
+from registration.backends.simple.views import RegistrationView
+
 from .models import User
 from instaclone.contrib.pictures.models import Picture
 from instaclone.contrib.likes.models import Like
 
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def news_feed(request):
     user = request.user
     news_feed = User.objects.get_news_feed_items_for_user(user=user)
@@ -71,3 +74,15 @@ def toggle_follow(request):
         target_user.save()
         response_data = {}
         return JsonResponse(response_data)
+
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return render(request, 'registration/logout.html')
+
+
+class RegistrationView():
+    @staticmethod
+    def get_success_view():   # redirects the user on submitting an account registration
+        return "/"
