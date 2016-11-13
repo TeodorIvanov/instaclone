@@ -3,12 +3,13 @@ from django.utils.translation import ugettext as _
 
 from instaclone.contrib.users.models import User
 from instaclone.contrib.tags.models import Tag
+from instaclone.contrib.tags.utils import get_hashtags_from_description
 
 
 class Picture(models.Model):
     owner = models.ForeignKey(User, verbose_name=_('Owner'), related_name='pictures')
     tags = models.ManyToManyField(Tag, verbose_name=_('Tags'), related_name='pictures', blank=True)
-    picture = models.ImageField(upload_to='/media/')
+    picture = models.ImageField()
     description = models.CharField(_('Picture description'), max_length=500, default='')
     latitude = models.FloatField(blank=True, null=True)
     logitude = models.FloatField(blank=True, null=True)
@@ -22,3 +23,8 @@ class Picture(models.Model):
 
     def __str__(self):
         return '{} @ {}'.format(self.owner.user.username, self.time_created.isoformat())
+
+    def save(self, *args, **kwargs):
+        pic_tags = get_hashtags_from_description(self)
+        self.tags.add(*pic_tags)
+        super(Picture, self).save(*args, **kwargs)

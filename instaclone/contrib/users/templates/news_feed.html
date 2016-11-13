@@ -18,6 +18,9 @@
                 <span id="like_count_wrapper-{{ post.id }}">{{ likes }}</span> like{{ likes|pluralize }}
               {% endif %}
             {% endwith %}
+            <div class="description_wrapper">
+              {{ post.description }}
+            </div>
             <form method="POST">
               {% csrf_token %}
               {% if author.1 %}
